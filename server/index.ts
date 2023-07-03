@@ -28,11 +28,12 @@ const corsOption = {
 
 app.use(cors(corsOption));
 
+// app.use(cookieParser('_'));
 
-// const options = {
-//   key: fs.readFileSync('localhost-key.pem'),
-//   cert: fs.readFileSync('localhost.pem'),
-// };
+const options = {
+  key: fs.readFileSync('localhost-key.pem'),
+  cert: fs.readFileSync('localhost.pem'),
+};
 
 // NOTE: This users map is for demo purposes. Its used to show the power of
 // what you can accomplish with the Auth callbacks. In a production app,
@@ -42,10 +43,15 @@ const users: Record<string, any> = {};
 
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
   domain: 'localhost:3000',
-  wallet: new PrivateKeyWallet(''),
+  wallet: new PrivateKeyWallet(
+    'b414a3e625d1faa35b56737185fb14de1628ec3b4937613f3c55234e7c48f1fa'
+  ),
   // NOTE: All these callbacks are optional! You can delete this section and
   // the Auth flow will still work.
+  // cookieOptions: {
+  //   // sameSite: 'none',
 
+  // },
   callbacks: {
     onLogin: async (address) => {
       // Here we can run side-effects like creating and updating user data

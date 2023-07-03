@@ -37,32 +37,31 @@ const Home: NextPage = () => {
   async function handleLogin() {
     await login();
     try {
-      const res = await axios.post(
-        'http://localhost:8000/auth/login',
-        {
-          payload: {
-            payload: {
-              type: 'evm',
-              domain: 'localhost:3000',
-              address: '0xD63Ef08a38EfF4416d7EBf9895B69A525AE593F7',
-              statement:
-                'Please ensure that the domain above matches the URL of the current website.',
-              uri: 'http://localhost:3000',
-              version: '1',
-              chain_id: '1',
-              nonce: 'e65b0e5d-58e4-43fa-ba9d-42385c6ff519',
-              issued_at: '2023-03-02T02:09:33.235Z',
-              expiration_time: '2023-03-02T02:15:47.562Z',
-              invalid_before: '2023-03-02T02:09:33.235Z',
-            },
-            signature:
-              '0xaf13a31dd5bd9b746c99e395b888f03fdedd466e6de2bd94cd08a4831ba3fca9337619abd9af9dea1c7c2cca2633adcf60f2298a56cca4d394548f392fddcaaf1c',
-          },
-        },
-        { withCredentials: true }
-      );
-
-      console.log(res);
+      // const res = await axios.post(
+      //   'http://localhost:8000/auth/login',
+      //   {
+      //     payload: {
+      //       payload: {
+      //         type: 'evm',
+      //         domain: 'localhost:3000',
+      //         address: '0xD63Ef08a38EfF4416d7EBf9895B69A525AE593F7',
+      //         statement:
+      //           'Please ensure that the domain above matches the URL of the current website.',
+      //         uri: 'http://localhost:3000',
+      //         version: '1',
+      //         chain_id: '1',
+      //         nonce: 'ab36a56f-25e8-4b0a-b591-bc5c8f7ccbfd',
+      //         issued_at: '2023-03-02T07:15:18.451Z',
+      //         expiration_time: '2023-03-02T07:20:20.240Z',
+      //         invalid_before: '2023-03-02T07:15:18.451Z',
+      //       },
+      //       signature:
+      //         '0xd6ab804b7eb969c17221d86a279a1e4dcbcfee9f99ddc15eb8ab4515fb9b61437ca97b2f80d6f95bd628347e3fd81d81422e2584cf53226fddcf6b53eff21b381c',
+      //     },
+      //   },
+      //   { withCredentials: true }
+      // );
+      // console.log(res);
     } catch (err) {
       console.error(err);
     }
